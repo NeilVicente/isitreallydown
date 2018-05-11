@@ -1,5 +1,9 @@
 <?php
 
+if (preg_match("/^chrome-extension:\/\/.+/", $_SERVER['HTTP_ORIGIN'])) {
+    header('Access-Control-Allow-Origin: ' . $_SERVER['HTTP_ORIGIN']);
+}
+
 $url = $_REQUEST['url'];
 echo checkStatus($url);
 
